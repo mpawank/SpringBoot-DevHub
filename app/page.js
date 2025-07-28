@@ -16,7 +16,7 @@ import {
   Rocket, 
   Code, 
   BookOpen, 
-  Github, 
+  Github2, 
   Newspaper, 
   Sparkles, 
   Zap, 
@@ -24,7 +24,6 @@ import {
   Users, 
   Star,
   ArrowRight,
-  Play,
   Download,
   ExternalLink,
   CheckCircle,
@@ -190,7 +189,7 @@ export default function HomePage() {
                 title: "🌐 GitHub Explorer",
                 href: "/github-projects",
                 desc: "Discover top Spring Boot repositories curated by topic and popularity.",
-                icon: Github,
+                icon: Github2,
                 color: "from-gray-500 to-gray-600",
                 features: ["Trending Repos", "Topic Filtering", "Star Rankings", "Contributions"]
               },
@@ -423,7 +422,7 @@ export default function HomePage() {
             <Card className="text-center">
               <CardHeader>
                 <div className="mx-auto w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                  <Github className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <Github2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <CardTitle>GitHub</CardTitle>
               </CardHeader>
@@ -505,7 +504,7 @@ export default function HomePage() {
                     <TooltipTrigger asChild>
                       <Button variant="ghost" size="sm" className="w-10 h-10 p-0" asChild>
                         <Link href="https://github.com/mpawank/SpringBoot-DevHub" target="_blank" rel="noopener noreferrer">
-                          <Github className="w-5 h-5" />
+                          <Github2 className="w-5 h-5" />
                         </Link>
                       </Button>
                     </TooltipTrigger>
@@ -612,7 +611,7 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="text-center md:text-left mb-4 md:mb-0">
                   <p className="text-gray-600 dark:text-gray-300">
-                    © 2024 SpringBoot DevHub. All rights reserved.
+                    © 2025 SpringBoot DevHub. All rights reserved.
                   </p>
                 </div>
                 <div className="text-center md:text-right">
