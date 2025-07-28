@@ -16,7 +16,7 @@ import {
   Rocket, 
   Code, 
   BookOpen, 
-  Github2, 
+  Github, 
   Newspaper, 
   Sparkles, 
   Zap, 
@@ -50,9 +50,9 @@ export default function HomePage() {
                 Spring Boot 3.x Ready
               </Badge>
             </div>
-            
-            <h1 className="text-6xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 bg-clip-text text-transparent animate-gradient">
-              SpringBoot DevHub
+                        <h1 className="text-6xl md:text-7xl font-bold tracking-tight animate-gradient">
+              <span className="text-green-600">SpringBoot</span>{" "}
+              <span className="bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 bg-clip-text text-transparent">DevHub</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -189,7 +189,7 @@ export default function HomePage() {
                 title: "🌐 GitHub Explorer",
                 href: "/github-projects",
                 desc: "Discover top Spring Boot repositories curated by topic and popularity.",
-                icon: Github2,
+                icon: Github,
                 color: "from-gray-500 to-gray-600",
                 features: ["Trending Repos", "Topic Filtering", "Star Rankings", "Contributions"]
               },
@@ -422,7 +422,7 @@ export default function HomePage() {
             <Card className="text-center">
               <CardHeader>
                 <div className="mx-auto w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                  <Github2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <Github className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <CardTitle>GitHub</CardTitle>
               </CardHeader>
@@ -504,7 +504,7 @@ export default function HomePage() {
                     <TooltipTrigger asChild>
                       <Button variant="ghost" size="sm" className="w-10 h-10 p-0" asChild>
                         <Link href="https://github.com/mpawank/SpringBoot-DevHub" target="_blank" rel="noopener noreferrer">
-                          <Github2 className="w-5 h-5" />
+                          <Github className="w-5 h-5" />
                         </Link>
                       </Button>
                     </TooltipTrigger>
