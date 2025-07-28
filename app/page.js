@@ -30,7 +30,10 @@ import {
   CheckCircle,
   TrendingUp,
   Heart,
-  GitBranch
+  GitBranch,
+  Mail,
+  Linkedin,
+  Twitter
 } from "lucide-react";
 
 export default function HomePage() {
@@ -111,7 +114,7 @@ export default function HomePage() {
                     asChild
                   >
                     <Link 
-                      href="https://github.com/mpawank/SpringBootHub" 
+                      href="https://github.com/mpawank/SpringBoot-DevHub" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center"
@@ -429,7 +432,7 @@ export default function HomePage() {
                   Contribute to our open-source templates and snippets
                 </p>
                 <Button variant="outline" asChild>
-                  <Link href="https://github.com/mpawank/SpringBootHub" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  <Link href="https://github.com/mpawank/SpringBoot-DevHub" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Join Us
                   </Link>
@@ -478,6 +481,152 @@ export default function HomePage() {
             </Card>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-10 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Brand Section */}
+              <div className="md:col-span-2">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                    <Rocket className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">
+                    SpringBoot DevHub
+                  </h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-md">
+                  Your central hub for learning and building with Spring Boot. 
+                  Discover templates, guides, snippets, and everything you need to accelerate your development.
+                </p>
+                <div className="flex space-x-4">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="sm" className="w-10 h-10 p-0" asChild>
+                        <Link href="https://github.com/mpawank/SpringBoot-DevHub" target="_blank" rel="noopener noreferrer">
+                          <Github className="w-5 h-5" />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>GitHub</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="sm" className="w-10 h-10 p-0" asChild>
+                        <Link href="mailto:contact@springboothub.dev">
+                          <Mail className="w-5 h-5" />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Email</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="sm" className="w-10 h-10 p-0" asChild>
+                        <Link href="https://linkedin.com/in/mpawankumar" target="_blank" rel="noopener noreferrer">
+                          <Linkedin className="w-5 h-5" />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>LinkedIn</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="sm" className="w-10 h-10 p-0" asChild>
+                        <Link href="https://twitter.com/mpawankumar" target="_blank" rel="noopener noreferrer">
+                          <Twitter className="w-5 h-5" />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Twitter</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Resources</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/templates" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Templates
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/snippets" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Code Snippets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/guides" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Guides
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/news" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      News & Updates
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Community */}
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Community</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="https://github.com/mpawank/SpringBoot-DevHub" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Contribute
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://discord.gg/springboothub" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Discord
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/newsletter" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Newsletter
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center">
+                <div className="text-center md:text-left mb-4 md:mb-0">
+                  <p className="text-gray-600 dark:text-gray-300">
+                    © 2024 SpringBoot DevHub. All rights reserved.
+                  </p>
+                </div>
+                <div className="text-center md:text-right">
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Made with <Heart className="w-4 h-4 inline text-red-500 animate-pulse" /> by{" "}
+                    <span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      M Pawan Kumar
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </TooltipProvider>
   );
