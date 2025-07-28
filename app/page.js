@@ -1,72 +1,431 @@
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { 
+  Rocket, 
+  Code, 
+  BookOpen, 
+  Github, 
+  Newspaper, 
+  Sparkles, 
+  Zap, 
+  Shield, 
+  Users, 
+  Star,
+  ArrowRight,
+  Play,
+  Download,
+  ExternalLink,
+  CheckCircle,
+  TrendingUp
+} from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="space-y-10 px-4 md:px-10 py-10 max-w-6xl mx-auto">
-      {/* Hero Section */}
-      <section className="text-center space-y-4">
-        <h1 className="text-5xl font-bold tracking-tight text-blue-700">SpringBoot DevHub</h1>
-        <p className="text-lg text-gray-600">Your central hub for learning and building with Spring Boot — templates, guides, snippets & more.</p>
-        <div className="flex justify-center gap-4 pt-4">
-          <Button asChild>
-            <Link href="/templates">Explore Templates</Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/snippets">View Snippets</Link>
-          </Button>
-        </div>
-      </section>
+    <TooltipProvider>
+      <div className="min-h-screen">
+        {/* Hero Section with Enhanced Animations */}
+        <section className="relative overflow-hidden px-4 md:px-10 py-20 max-w-6xl mx-auto">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-indigo-600/10 rounded-3xl blur-3xl animate-pulse"></div>
+          
+          <div className="relative text-center space-y-8 animate-fade-in">
+            <div className="flex justify-center mb-6">
+              <Badge variant="secondary" className="animate-bounce">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Spring Boot 3.x Ready
+              </Badge>
+            </div>
+            
+            <h1 className="text-6xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 bg-clip-text text-transparent animate-gradient">
+              SpringBoot DevHub
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Your central hub for learning and building with Spring Boot — 
+              <span className="font-semibold text-blue-600 dark:text-blue-400"> templates</span>, 
+              <span className="font-semibold text-purple-600 dark:text-purple-400"> guides</span>, 
+              <span className="font-semibold text-indigo-600 dark:text-indigo-400"> snippets</span> & more.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8">
+              <Button size="lg" className="group animate-fade-in-up" asChild>
+                <Link href="/templates" className="flex items-center">
+                  <Rocket className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                  Explore Templates
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" className="group animate-fade-in-up animation-delay-200" asChild>
+                <Link href="/snippets" className="flex items-center">
+                  <Code className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+                  View Snippets
+                </Link>
+              </Button>
+            </div>
+            
+            {/* Stats Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+              {[
+                { icon: Download, label: "Templates", value: "50+", color: "text-blue-600" },
+                { icon: Code, label: "Snippets", value: "200+", color: "text-purple-600" },
+                { icon: Users, label: "Developers", value: "10K+", color: "text-indigo-600" }
+              ].map((stat, index) => (
+                <div key={stat.label} className="text-center animate-fade-in-up" style={{ animationDelay: `${(index + 3) * 200}ms` }}>
+                  <stat.icon className={`w-8 h-8 mx-auto mb-2 ${stat.color}`} />
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      <Separator />
+        <Separator className="my-16" />
 
-      {/* Feature Grid */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {[
-          {
-            title: "🚀 Templates",
-            href: "/templates",
-            desc: "Ready-to-use Spring Boot starter projects (CRUD, Auth, REST, etc.)",
-          },
-          {
-            title: "📄 Code Snippets",
-            href: "/snippets",
-            desc: "Common Spring Boot patterns, annotations, and boilerplate.",
-          },
-          {
-            title: "📘 Guides",
-            href: "/guides",
-            desc: "Step-by-step walkthroughs for beginners and pros.",
-          },
-          {
-            title: "🌐 GitHub Explorer",
-            href: "/github-projects",
-            desc: "Discover top Spring Boot repos curated by topic.",
-          },
-          {
-            title: "📰 News & Updates",
-            href: "/news",
-            desc: "Latest trends and news from Spring ecosystem.",
-          },
-        ].map(({ title, href, desc }) => (
-          <Card key={title}>
-            <CardHeader>
-              <CardTitle>{title}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground">
-              <p>{desc}</p>
-              <div className="mt-4">
-                <Button variant="link" asChild>
-                  <Link href={href}>Visit</Link>
-                </Button>
+        {/* Feature Grid with Enhanced Cards */}
+        <section className="px-4 md:px-10 py-16 max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Everything You Need
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Comprehensive resources to accelerate your Spring Boot development
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "🚀 Templates",
+                href: "/templates",
+                desc: "Ready-to-use Spring Boot starter projects with CRUD, Auth, REST APIs, and more.",
+                icon: Rocket,
+                color: "from-blue-500 to-blue-600",
+                features: ["CRUD Operations", "Authentication", "REST APIs", "Microservices"]
+              },
+              {
+                title: "📄 Code Snippets",
+                href: "/snippets",
+                desc: "Common Spring Boot patterns, annotations, and boilerplate code.",
+                icon: Code,
+                color: "from-purple-500 to-purple-600",
+                features: ["Annotations", "Configuration", "Security", "Database"]
+              },
+              {
+                title: "📘 Guides",
+                href: "/guides",
+                desc: "Step-by-step walkthroughs for beginners and advanced developers.",
+                icon: BookOpen,
+                color: "from-green-500 to-green-600",
+                features: ["Getting Started", "Best Practices", "Advanced Topics", "Troubleshooting"]
+              },
+              {
+                title: "🌐 GitHub Explorer",
+                href: "/github-projects",
+                desc: "Discover top Spring Boot repositories curated by topic and popularity.",
+                icon: Github,
+                color: "from-gray-500 to-gray-600",
+                features: ["Trending Repos", "Topic Filtering", "Star Rankings", "Contributions"]
+              },
+              {
+                title: "📰 News & Updates",
+                href: "/news",
+                desc: "Latest trends, updates, and news from the Spring ecosystem.",
+                icon: Newspaper,
+                color: "from-orange-500 to-orange-600",
+                features: ["Release Notes", "Community News", "Tutorials", "Events"]
+              },
+              {
+                title: "⚡ Performance Tools",
+                href: "/tools",
+                desc: "Tools and utilities to optimize your Spring Boot applications.",
+                icon: Zap,
+                color: "from-red-500 to-red-600",
+                features: ["Profiling", "Monitoring", "Testing", "Deployment"]
+              }
+            ].map((feature, index) => (
+              <HoverCard key={feature.title} openDelay={200}>
+                <HoverCardTrigger asChild>
+                  <Card className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 animate-fade-in-up" 
+                        style={{ animationDelay: `${index * 100}ms` }}>
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between">
+                        <feature.icon className={`w-8 h-8 bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`} />
+                        <Badge variant="outline" className="text-xs">
+                          <Star className="w-3 h-3 mr-1" />
+                          Popular
+                        </Badge>
+                      </div>
+                      <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {feature.desc}
+                      </p>
+                      <div className="space-y-2">
+                        {feature.features.map((item, idx) => (
+                          <div key={idx} className="flex items-center text-xs text-muted-foreground">
+                            <CheckCircle className="w-3 h-3 mr-2 text-green-500" />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                      <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
+                        <Link href={feature.href} className="flex items-center justify-center">
+                          Explore
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="space-y-2">
+                    <h4 className="font-semibold">{feature.title}</h4>
+                    <p className="text-sm text-muted-foreground">{feature.desc}</p>
+                    <div className="flex items-center pt-2">
+                      <Button size="sm" asChild>
+                        <Link href={feature.href}>Learn More</Link>
+                      </Button>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            ))}
+          </div>
+        </section>
+
+        <Separator className="my-16" />
+
+        {/* Quick Start Section */}
+        <section className="px-4 md:px-10 py-16 max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Quick Start
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Get started with Spring Boot in minutes
+            </p>
+          </div>
+          
+          <Tabs defaultValue="templates" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="templates" className="flex items-center">
+                <Rocket className="w-4 h-4 mr-2" />
+                Templates
+              </TabsTrigger>
+              <TabsTrigger value="snippets" className="flex items-center">
+                <Code className="w-4 h-4 mr-2" />
+                Snippets
+              </TabsTrigger>
+              <TabsTrigger value="guides" className="flex items-center">
+                <BookOpen className="w-4 h-4 mr-2" />
+                Guides
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="templates" className="mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <Shield className="w-5 h-5 mr-2 text-green-600" />
+                      Basic CRUD Template
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      Complete CRUD operations with Spring Data JPA and REST controllers
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <Badge variant="secondary">Spring Boot 3.x</Badge>
+                      <Button size="sm" asChild>
+                        <Link href="/templates/crud">Get Template</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <Users className="w-5 h-5 mr-2 text-blue-600" />
+                      Authentication Template
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      JWT-based authentication with Spring Security
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <Badge variant="secondary">Spring Security</Badge>
+                      <Button size="sm" asChild>
+                        <Link href="/templates/auth">Get Template</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </CardContent>
-          </Card>
-        ))}
-      </section>
-    </div>
+            </TabsContent>
+            
+            <TabsContent value="snippets" className="mt-8">
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Common Annotations</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center justify-between p-2 bg-muted rounded">
+                        <code>@RestController</code>
+                        <Badge variant="outline">Controller</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-muted rounded">
+                        <code>@Service</code>
+                        <Badge variant="outline">Service</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-muted rounded">
+                        <code>@Repository</code>
+                        <Badge variant="outline">Data</Badge>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Configuration</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center justify-between p-2 bg-muted rounded">
+                        <code>@Configuration</code>
+                        <Badge variant="outline">Config</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-muted rounded">
+                        <code>@Bean</code>
+                        <Badge variant="outline">Bean</Badge>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+            
+            <TabsContent value="guides" className="mt-8">
+              <div className="space-y-4">
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-semibold">Getting Started with Spring Boot</h4>
+                        <p className="text-sm text-muted-foreground">Learn the basics of Spring Boot development</p>
+                      </div>
+                      <Button size="sm" asChild>
+                        <Link href="/guides/getting-started">Read Guide</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-semibold">Building REST APIs</h4>
+                        <p className="text-sm text-muted-foreground">Create robust REST APIs with Spring Boot</p>
+                      </div>
+                      <Button size="sm" asChild>
+                        <Link href="/guides/rest-apis">Read Guide</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </section>
+
+        {/* Community Section */}
+        <section className="px-4 md:px-10 py-16 max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Join Our Community
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Connect with fellow Spring Boot developers
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                  <Github className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <CardTitle>GitHub</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Contribute to our open-source templates and snippets
+                </p>
+                <Button variant="outline" asChild>
+                  <Link href="https://github.com/springboothub" className="flex items-center">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Join Us
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                </div>
+                <CardTitle>Discord</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Chat with developers and get help in real-time
+                </p>
+                <Button variant="outline" asChild>
+                  <Link href="https://discord.gg/springboothub" className="flex items-center">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Join Server
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-4">
+                  <Newspaper className="w-6 h-6 text-green-600 dark:text-green-400" />
+                </div>
+                <CardTitle>Newsletter</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Stay updated with the latest Spring Boot news
+                </p>
+                <Button variant="outline" asChild>
+                  <Link href="/newsletter" className="flex items-center">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Subscribe
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </div>
+    </TooltipProvider>
   );
 }
