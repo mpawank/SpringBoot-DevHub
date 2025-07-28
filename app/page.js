@@ -28,7 +28,9 @@ import {
   Download,
   ExternalLink,
   CheckCircle,
-  TrendingUp
+  TrendingUp,
+  Heart,
+  GitBranch
 } from "lucide-react";
 
 export default function HomePage() {
@@ -72,6 +74,57 @@ export default function HomePage() {
                   View Snippets
                 </Link>
               </Button>
+            </div>
+
+            {/* GitHub Action Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4 animate-fade-in-up animation-delay-400">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-green-500 hover:border-green-600"
+                    asChild
+                  >
+                    <Link 
+                      href="https://github.com/mpawank/SpringBoot-DevHub" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                    >
+                      <Star className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+                      Give us a Star
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Star our repository on GitHub</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="group bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white border-purple-500 hover:border-purple-600"
+                    asChild
+                  >
+                    <Link 
+                      href="https://github.com/mpawank/SpringBootHub" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                    >
+                      <GitBranch className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                      Contribute
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Contribute to our open source project</p>
+                </TooltipContent>
+              </Tooltip>
             </div>
             
             {/* Stats Section */}
@@ -376,7 +429,7 @@ export default function HomePage() {
                   Contribute to our open-source templates and snippets
                 </p>
                 <Button variant="outline" asChild>
-                  <Link href="https://github.com/springboothub" className="flex items-center">
+                  <Link href="https://github.com/mpawank/SpringBootHub" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Join Us
                   </Link>
@@ -396,7 +449,7 @@ export default function HomePage() {
                   Chat with developers and get help in real-time
                 </p>
                 <Button variant="outline" asChild>
-                  <Link href="https://discord.gg/springboothub" className="flex items-center">
+                  <Link href="https://discord.gg/springboothub" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Join Server
                   </Link>
